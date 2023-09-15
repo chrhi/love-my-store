@@ -16,7 +16,7 @@ const Header: FC = ({}) => {
           <Image src="/brand.png" alt="logo" width={80} height={80} />
         </Link>
         <Link href="/signin">
-          <Button>Sign in</Button>
+          <Button className="bg-[#adfa1d]">Sign in</Button>
         </Link>
       </div>
     </div>
