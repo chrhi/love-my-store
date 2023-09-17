@@ -1,9 +1,5 @@
-import { type Metadata } from "next"
-import { notFound } from "next/navigation"
-import { db } from "@/db"
-import { products } from "@/db/schema"
-import { env } from "@/env.mjs"
-import { and, eq } from "drizzle-orm"
+import { type Metadata } from "next";
+import { notFound } from "next/navigation";
 
 import {
   Card,
@@ -11,35 +7,35 @@ import {
   CardDescription,
   CardHeader,
   CardTitle,
-} from "@/components/ui/card"
-import { UpdateProductForm } from "@/components/forms/update-product-form"
-import { ProductPager } from "@/components/pagers/product-pager"
+} from "@/components/ui/card";
+import { UpdateProductForm } from "@/components/forms/update-product-form";
+import { ProductPager } from "@/components/pagers/product-pager";
 
 export const metadata: Metadata = {
   metadataBase: new URL(env.NEXT_PUBLIC_APP_URL),
   title: "Manage Product",
   description: "Manage your product",
-}
+};
 
 interface UpdateProductPageProps {
   params: {
-    storeId: string
-    productId: string
-  }
+    storeId: string;
+    productId: string;
+  };
 }
 
 export default async function UpdateProductPage({
   params,
 }: UpdateProductPageProps) {
-  const storeId = Number(params.storeId)
-  const productId = Number(params.productId)
+  const storeId = Number(params.storeId);
+  const productId = Number(params.productId);
 
   const product = await db.query.products.findFirst({
     where: and(eq(products.id, productId), eq(products.storeId, storeId)),
-  })
+  });
 
   if (!product) {
-    notFound()
+    notFound();
   }
 
   return (
@@ -59,5 +55,5 @@ export default async function UpdateProductPage({
         <UpdateProductForm product={product} />
       </CardContent>
     </Card>
-  )
+  );
 }

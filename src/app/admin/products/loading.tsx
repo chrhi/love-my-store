@@ -1,5 +1,5 @@
-import { Skeleton } from "@/components/ui/skeleton"
-import { DataTableLoading } from "@/components/data-table/data-table-loading"
+import { Skeleton } from "@/components/ui/skeleton";
+import { DataTableLoading } from "@/components/tables/data-table-loading";
 
 export default function ProductsLoading() {
   return (
@@ -14,5 +14,5 @@ export default function ProductsLoading() {
         isRowsDeletable={true}
       />
     </div>
-  )
+  );
 }
