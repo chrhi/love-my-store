@@ -221,7 +221,7 @@ export function ProductsTableShell({
           title: "names",
         },
       ]}
-      newRowLink={`/dashboard/store/products/new`}
+      newRowLink={`/admin/products/new`}
       deleteRowsAction={() => void deleteSelectedRows()}
     />
   );
